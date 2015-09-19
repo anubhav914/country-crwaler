@@ -1,0 +1,12 @@
+Your task is to write a command line program in python.
+- The program should accept a name of a country as input.
+- It should then parse the wikipedia page for that country and find all links to the wikipedia pages of other countries on that page and make a list of all such countries. So for example if the argument was India and http://en.wikipedia.org/wiki/India has links to wiki pages of Nepal and Pakistan, the list associated with India is [Nepal, Pakistan]
+- The program should recursively perform the above operation for any country you have not encountered so far. So after parsing the wiki page for India, it should parse the wiki page of Nepal, Pakistan and so on.
+- The final output is a json object with key being the country and value being the list of countries which were linked to the wiki page for the key country. Sample output can be :
+	{"India": ["Nepal", "Pakistan"],
+	"Nepal": ["India", "China"],
+	"Pakistan": ["India"],
+	"China": ["Japan"],
+	"Japan": ["India", "China"]}
+
+You can’t hardcode a country list and check against it. So if you find a page of Andaman, try to parse the page and extract information that might hint that it is a country. Of course, your heuristic might not be 100% correct and I don’t want a perfect solution. So Andaman might be mistakenly recognized as a country but if India page also has a link to Elephant, at least your code should figure out that the elephant page does not represent a country.
